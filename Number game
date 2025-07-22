@@ -1,0 +1,40 @@
+import java.util.*;
+class guess
+{
+    public static void main (String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        double a;
+        int n,l=1,r,m,at=0,ts=0;
+        a=Math.random();
+        n=(int)(a*100);
+        int att=5;
+        while(l==1)
+        {
+            at=0;
+            while(at<att)
+            {
+                System.out.println("Enter a number");
+                m=sc.nextInt();
+                at++;
+                if(n==m)
+                {
+                    System.out.println("guess corrected");
+                    ts=att-at+1;
+                    break;
+                }
+                else if(m<n)
+                {
+                    System.out.println("Low");
+                }
+                else if(n<m)
+                {
+                    System.out.println("High");
+                }
+            }
+            System.out.println("Total Score"+ts);
+            System.out.println("Do you want to repeat: for Yes type 1 and for NO type any other digit");
+            l=sc.nextInt();
+        }
+    }
+}
