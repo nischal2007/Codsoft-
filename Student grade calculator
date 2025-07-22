@@ -1,0 +1,63 @@
+import java.util.*;
+class grade
+{
+    int n;
+    double tm,avg;
+    int arr[];
+    void input()
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Number of subject");
+        n=sc.nextInt();
+        arr=new int[n];
+        System.out.println("ENTER MARKS OF EACH SUBJECT");
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+    }
+    double totalmarks()
+    { 
+        tm=0;
+    for(int i=0;i<n;i++)
+    {
+        tm=arr[i]+tm;
+    }
+    return tm;
+    }
+    double cal_persent()
+    {
+        double a=totalmarks();
+        avg = a/n;
+        return avg;
+    }
+    void grade_assign()
+    {   double p=cal_persent();
+        if(p>=90)
+        {
+            System.out.println("GRADE:A");
+        }
+        else if(p<90 && p>=80)
+            System.out.println("GRADE:B");
+        else if(p<80 && p>=70)
+            System.out.println("GRADE:C");
+        else if(p<70 && p>=60)
+            System.out.println("GRADE:D");
+        else if(p<60 && p>=50)
+            System.out.println("GRADE:E");
+        else
+            System.out.println("GRADE:F");
+    }
+    void display()
+    {
+        System.out.println("Total Marks:"+totalmarks());
+        System.out.println("Your persentage is:"+cal_persent());   
+        grade_assign();
+    }
+    public static void main(String args[])
+    {
+        grade ob=new grade();
+        ob.input();
+        ob.display();
+    }
+}
